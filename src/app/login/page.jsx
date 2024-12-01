@@ -100,7 +100,7 @@ export default function LoginPage() {
             {error && <p className="text-sm text-red-600">{error}</p>} {/* Display error message */}
           </form>
           <h1 className="text-sm text-center text-gray-600 mt-4">
-            Don't have an account?{" "}
+            {"Don't"} have an account?{" "}
             <Link
               href="/signup"
               className="text-sm text-[#4A90E2] font-semibold cursor-pointer hover:underline"
@@ -108,6 +108,7 @@ export default function LoginPage() {
               Signup
             </Link>
           </h1>
+
         </div>
 
         {/* Right Box (Info Section) */}
