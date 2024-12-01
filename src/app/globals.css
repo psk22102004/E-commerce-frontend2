@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global.css or styles.css */
+
+/* Define marquee animation */
+@keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Marquee container styles */
+  .animate-marquee-container {
+    display: flex;
+    animation: marquee 20s linear infinite;
+    animation-play-state: running; /* Default state */
+  }
+  
+  .animate-marquee-container:hover {
+    animation-play-state: paused; /* Pause animation on hover */
+  }
+  
+  /* Marquee item styles (for both sets of products) */
+  .animate-marquee {
+    display: flex;
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+  
+  /* You can tweak this duration for different screen sizes */
+  @media (max-width: 768px) {
+    .animate-marquee-container {
+      animation-duration: 15s; /* Faster scrolling on smaller screens */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .animate-marquee-container {
+      animation-duration: 20s; /* Slower scrolling on larger screens */
+    }
+  }
+    
+
+
+  /* global.css or styles.css */
+
+/* Set up the rotation container */
+.rotate-container {
+    position: relative;
+    width: 300px; /* Adjust size */
+    height: 300px; /* Adjust size */
+    border-radius: 50%;
+    animation: rotate 20s linear infinite; /* Rotate infinitely */
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Style for each item */
+  .feature-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px; /* Size of each item */
+    text-align: center;
+    transform-origin: 0 0;
+    transform: translate(-50%, -50%) rotate(calc(90deg * var(--i))) translateY(-130px); /* Position and rotate */
+  }
+  
+  /* Apply different rotation angles */
+  .feature-item:nth-child(1) {
+    --i: 0;
+  }
+  
+  .feature-item:nth-child(2) {
+    --i: 1;
+  }
+  
+  .feature-item:nth-child(3) {
+    --i: 2;
+  }
+  
+  .feature-item:nth-child(4) {
+    --i: 3;
+  }
+  
+  .feature-item img {
+    border-radius: 50%;
+  }
+  
+  .feature-item p {
+    margin-top: 8px;
+    font-weight: 600;
+  }
+  
