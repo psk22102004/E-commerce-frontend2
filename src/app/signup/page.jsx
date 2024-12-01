@@ -9,7 +9,7 @@ export default function SignupPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('user');
-    const [error, setError] = useState(''); // State to store error message
+    const [error, setError] = useState(''); 
 
     const router = useRouter();
 

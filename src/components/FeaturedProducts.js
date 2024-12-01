@@ -1,5 +1,4 @@
 'use client'
-// components/FeaturedProducts.js
 import React , {useState , useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -8,7 +7,6 @@ import "swiper/css/pagination";
 import MiniProductCard from "./MiniProductCard.js";
 
 const FeaturedProducts = ({ featuredProducts }) => {
-    // JSON with 5 quotes related to shopping and their authors
     const quotes = [
       {
         text: "I always say shopping is cheaper than a psychiatrist.",
@@ -33,14 +31,12 @@ const FeaturedProducts = ({ featuredProducts }) => {
     ];
     
   
-    // State to hold a random quote
     const [randomQuote, setRandomQuote] = useState(null);
   
     useEffect(() => {
-      // Select a random quote on page render
       const randomIndex = Math.floor(Math.random() * quotes.length);
       setRandomQuote(quotes[randomIndex]);
-    }, []); // Empty dependency array means this runs only on page load
+    }, []); 
   
   
   return (

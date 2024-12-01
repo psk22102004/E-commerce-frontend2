@@ -1,4 +1,3 @@
-// components/MiniProductCard.js
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -7,19 +6,17 @@ import Link from 'next/link';
 const MiniProductCard = ({ name, price, _id, description }) => {
   const [userId, setUserId] = useState(null);
 
-  // Fetch userId from the API to include it in the link
   const verifyUser = async () => {
     try {
       const { data } = await axios.get('https://e-commerce-backend-gper.onrender.com/api/auth/verify', { withCredentials: true });
-      setUserId(data.id); // Set userId if verification succeeds
+      setUserId(data.id);
     } catch (error) {
       console.error('Error verifying user:', error);
     }
   };
 
-  // Fetch user details when the component mounts
   useEffect(() => {
-    verifyUser(); // Verify user and set userId
+    verifyUser();
   }, []);
 
   return (

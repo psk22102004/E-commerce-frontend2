@@ -12,25 +12,25 @@ const ProductCarousel = ({ products }) => {
         <section className="my-12">
             <div className="max-w-screen-xl mx-auto px-4">
                 <Swiper
-                    effect="coverflow" // Enable the coverflow effect
-                    grabCursor={true} // Allow grabbing for navigation
-                    centeredSlides={true} // Center active slide
-                    slidesPerView="auto" // Adjust to slide size
+                    effect="coverflow" 
+                    grabCursor={true}
+                    centeredSlides={true} 
+                    slidesPerView="auto" 
                     coverflowEffect={{
-                        rotate: 0, // No rotation
-                        stretch: 0, // No stretching
-                        depth: 200, // Depth effect for 3D
-                        modifier: 1, // Modifier for effect strength
-                        slideShadows: true, // Enable shadows
+                        rotate: 0, 
+                        stretch: 0,
+                        depth: 200, 
+                        modifier: 1, 
+                        slideShadows: true,
                     }}
                     pagination={{
-                        clickable: true, // Make pagination bullets clickable
+                        clickable: true, 
                     }}
                     autoplay={{
-                        delay: 3000, // Automatically slide every 3 seconds
+                        delay: 3000,
                     }}
-                    loop={true} // Loop through slides infinitely
-                    modules={[EffectCoverflow, Pagination, Autoplay]} // Enable modules
+                    loop={true}
+                    modules={[EffectCoverflow, Pagination, Autoplay]} 
                     className="mySwiper"
                 >
                     {products.map((product) => (

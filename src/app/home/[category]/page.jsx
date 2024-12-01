@@ -1,8 +1,6 @@
-// app/products/[category]/page.jsx
 import axios from 'axios';
-import CategoryPageClient from './CategoryPageClient.jsx'; // Import client-side component
+import CategoryPageClient from './CategoryPageClient.jsx'; 
 
-// This will be a Server Component to fetch the initial list of products
 async function fetchInitialProducts(category, filters) {
   const { minPrice, maxPrice, limit = 10, sort = '', page = 1 } = filters;
 
@@ -28,7 +26,6 @@ async function fetchInitialProducts(category, filters) {
 const CategoryPage = async ({ params, searchParams }) => {
   const { category } = params;
 
-  // Initial filters from searchParams
   const filters = {
     minPrice: searchParams.minPrice || '',
     maxPrice: searchParams.maxPrice || '',
@@ -37,10 +34,8 @@ const CategoryPage = async ({ params, searchParams }) => {
     page: searchParams.page || 1,
   };
 
-  // Fetch the initial products data server-side
   const { products, totalPages } = await fetchInitialProducts(category, filters);
 
-  // Pass the initial products and totalPages as props to the client-side component
   return (
     <CategoryPageClient
       initialProducts={products}

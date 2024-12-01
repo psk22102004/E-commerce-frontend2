@@ -1,6 +1,5 @@
-// components/BestSellers.js
 import React from 'react';
-import BestSellerCard from './BestSellerCard'; // Assuming BestSellerCard is already created
+import BestSellerCard from './BestSellerCard'; 
 
 const BestSellers = ({ products }) => {
   return (

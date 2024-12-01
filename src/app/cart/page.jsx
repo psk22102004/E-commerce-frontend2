@@ -8,7 +8,7 @@ import Link from 'next/link';
 const CartPage = () => {
   const [userId, setUserId] = useState(null);
   const [cartItems, setCartItems] = useState([]);
-  const [isUpdating, setIsUpdating] = useState(false); // To track when updates are in progress
+  const [isUpdating, setIsUpdating] = useState(false); 
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -17,7 +17,7 @@ const CartPage = () => {
     setIsLoading(true);
     try {
       const { data } = await axios.get('https://e-commerce-backend-gper.onrender.com/api/auth/verify', { withCredentials: true });
-      setUserId(data.id); // Set userId if verification succeeds
+      setUserId(data.id); 
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);

@@ -1,4 +1,3 @@
-// app/productDetails/[userId]/[productId]/ProductDetailsPageClient.jsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -6,9 +5,9 @@ import axios from 'axios';
 import Link from 'next/link';
 
 const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
-  const [cartItems, setCartItems] = useState([]);  // Cart items for the current user
-  const [productQuantity, setProductQuantity] = useState(0); // Quantity of this product in the cart
-  const [isUpdating, setIsUpdating] = useState(false); // Loading state for cart updates
+  const [cartItems, setCartItems] = useState([]); 
+  const [productQuantity, setProductQuantity] = useState(0); 
+  const [isUpdating, setIsUpdating] = useState(false); 
   const [isLoading, setIsLoading] = useState(false);
 
 
@@ -17,7 +16,6 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
 
   console.log(productDetails);
 
-  // Function to fetch the user's cart and update cartItems
   const getCart = async (userId) => {
     setIsLoading(true);
     try {
@@ -30,17 +28,16 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
     }
   };
 
-  // Fetch cart items when the component mounts
   useEffect(() => {
     setIsLoading(true);
     const fetchCart = async () => {
-      await getCart(userId); // Get the cart based on userId
+      await getCart(userId);
     };
     fetchCart();
     setIsLoading(false);
-  }, [userId]);  // Dependency on userId so it fetches when it changes
+  }, [userId]); 
 
-  // Check if the product is in the cart and update quantity
+  
   useEffect(() => {
     const productInCart = cartItems.find((item) => item.productId._id === productId);
     if (productInCart) {
@@ -50,7 +47,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
     }
   }, [cartItems, productId]);
 
-  // Handle adding the product to the cart
+ 
   const handleAddToCart = async () => {
     setIsUpdating(true);
     try {
@@ -60,7 +57,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
           { userId, productId, quantity: 1 },
           { withCredentials: true }
         );
-        await getCart(userId); // Fetch updated cart after adding
+        await getCart(userId); 
       } else {
         alert('Product is already in the cart or no stock available');
       }
@@ -71,7 +68,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
     }
   };
 
-  // Handle increasing the product quantity in the cart
+  
   const increaseQuantity = async () => {
     setIsUpdating(true);
     try {
@@ -81,7 +78,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
           { userId, productId, quantity: 1 },
           { withCredentials: true }
         );
-        await getCart(userId); // Fetch updated cart after increasing quantity
+        await getCart(userId); 
       } else {
         alert('Not enough stock available');
       }
@@ -92,7 +89,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
     }
   };
 
-  // Handle decreasing the product quantity in the cart
+  
   const decreaseQuantity = async () => {
     if (productQuantity > 0) {
       setIsUpdating(true);
@@ -110,7 +107,7 @@ const ProductDetailsPageClient = ({ productDetails, userId, productId }) => {
             { withCredentials: true }
           );
         }
-        await getCart(userId); // Fetch updated cart after decreasing quantity
+        await getCart(userId); 
       } catch (error) {
         console.error('Error decreasing quantity:', error);
       } finally {
